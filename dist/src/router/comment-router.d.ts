@@ -1,1 +1,1 @@
-export declare const routerComment: import("express-serve-static-core").Router;
+export declare const commentRouter: import("express-serve-static-core").Router;

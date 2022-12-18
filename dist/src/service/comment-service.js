@@ -9,6 +9,11 @@ class CommentService {
             let comments = await this.commentRepository.find();
             return res.status(200).json(comments);
         };
+        this.add = async (req, res) => {
+            let comment = req.body;
+            let comments = await this.commentRepository.query(`select * from comments join posts idP=posts.id join users idU = users.id`);
+            return comments;
+        };
         this.commentRepository = data_source_1.AppDataSource.getRepository(comment_1.Comment);
     }
 }

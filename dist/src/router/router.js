@@ -5,6 +5,6 @@ const express_1 = require("express");
 const post_router_1 = require("./post-router");
 const user_router_1 = require("./user-router");
 exports.router = (0, express_1.Router)();
-exports.router.use('', post_router_1.routerPost);
-exports.router.use('/user', user_router_1.routerUser);
+exports.router.use('/posts', post_router_1.postRouter);
+exports.router.use('/auth', user_router_1.userRouter);
 //# sourceMappingURL=router.js.map

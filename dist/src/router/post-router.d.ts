@@ -1,1 +1,1 @@
-export declare const routerPost: import("express-serve-static-core").Router;
+export declare const postRouter: import("express-serve-static-core").Router;

@@ -9,6 +9,10 @@ class PostService {
             let posts = await this.postRepository.find();
             return posts;
         };
+        this.findByName = async (name) => {
+            let posts = await this.postRepository.query(`select * from posts where name = '${name}'`);
+            return posts;
+        };
         this.add = async (req, res) => {
             let post = req.body;
             let posts = await this.postRepository.save(post);

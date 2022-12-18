@@ -1,5 +1,6 @@
 import {Router} from "express";
 import commentController from "../controller/comment-controller";
 
-export const routerComment = Router();
-routerComment.get('/comments',commentController.getAll);
+export const commentRouter = Router();
+commentRouter.get('',commentController.getAll);
+commentRouter.post('/add',commentController.add);

@@ -9,8 +9,11 @@ class UserService {
             let users = await this.userRepository.find();
             return users;
         };
-        this.add = async (req, res) => {
-            let user = req.body;
+        this.findByName = async (name) => {
+            let users = await this.userRepository.query(`select * from users where name = '${name}'`);
+            return users;
+        };
+        this.add = async (user) => {
             let users = await this.userRepository.save(user);
             return users;
         };

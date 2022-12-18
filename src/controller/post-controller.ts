@@ -10,19 +10,23 @@ export class PostController{
         let posts = await this.postService.findAll();
         return res.status(200).json(posts);
     }
-
+    finByName =async (req:Request,res:Response)=>{
+        let post = req.body;
+        let postFind = await this.postService.findByName(post.name);
+        return res.status(201).json(postFind)
+    }
     add = async (req:Request,res:Response)=>{
-       let posts= await this.postService.add(req,res);
+        let posts= await this.postService.add(req,res);
         return res.status(200).json(posts);
     }
 
     edit = async  (req:Request,res:Response)=>{
-      let posts =  await this.postService.edit(req,res);
-      return res.status(200).json(posts);
+        let posts =  await this.postService.edit(req,res);
+        return res.status(200).json(posts);
     }
     delete= async  (req:Request,res:Response)=>{
-       let posts= await this.postService.delete(req,res);
-       return res.status(200).json(posts)
+        let posts= await this.postService.delete(req,res);
+        return res.status(200).json(posts)
     }
 }
 export default new PostController();

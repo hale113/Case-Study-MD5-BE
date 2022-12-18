@@ -16,7 +16,10 @@ export class PostService{
         let posts = await this.postRepository.find();
        return posts
     }
-
+    findByName = async (name)=>{
+        let posts = await this.postRepository.query(`select * from posts where name = '${name}'`)
+        return posts
+    }
     add = async (req:Request,res:Response)=>{
         let post = req.body;
         let posts = await this.postRepository.save(post)

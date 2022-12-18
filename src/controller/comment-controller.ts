@@ -1,27 +1,21 @@
 import {Request, Response} from "express";
-import {UserService} from "../service/user-service";
-import {PostService} from "../service/post-service";
 import {CommentService} from "../service/comment-service";
 
 export class CommentController{
     private commentService: CommentService;
-    private userService: UserService;
-    private postService: PostService;
     constructor() {
         this.commentService = new CommentService()
-        this.postService = new PostService();
-        this.userService = new UserService();
     }
     getAll = async (req:Request,res:Response)=>{
         let comments = await this.commentService.findAll(req,res);
-        let posts = await this.postService.findAll();
-        let users = await this.userService.findAll();
-        res.render('comment/list',{
-            listComment: comments,
-            listPost: posts,
-            listUser: users
-        })
+        return res.status(200).json(comments);
     }
+
+    add = async (req:Request,res:Response)=>{
+        let comments= await this.commentService.add(req,res);
+        return res.status(200).json(comments);
+    }
+
 }
 
 export default new CommentController();

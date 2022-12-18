@@ -1,6 +1,6 @@
 import {AppDataSource} from "../data-source";
 import {User} from "../model/user";
-import {Request, Response} from "express";
+import { Request, Response} from "express";
 
 export class UserService{
     private userRepository:any;
@@ -12,9 +12,11 @@ export class UserService{
         let users = await this.userRepository.find();
         return users
     }
-
-    add = async (req:Request,res:Response)=>{
-        let user = req.body;
+    findByName = async (name)=>{
+        let users = await this.userRepository.query(`select * from users where name = '${name}'`)
+        return users
+    }
+    add = async (user)=>{
         let users = await this.userRepository.save(user)
         return users
     }

@@ -11,5 +11,9 @@ export class CommentService{
         let comments = await this.commentRepository.find();
             return res.status(200).json(comments);
     }
-
+    add = async (req:Request,res:Response)=>{
+        let comment = req.body;
+        let comments = await this.commentRepository.query(`select * from comments join posts idP=posts.id join users idU = users.id`)
+        return comments
+    }
 }
