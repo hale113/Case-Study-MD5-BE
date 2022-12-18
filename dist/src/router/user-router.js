@@ -8,5 +8,5 @@ const express_1 = require("express");
 const user_controller_1 = __importDefault(require("../controller/user-controller"));
 exports.routerUser = (0, express_1.Router)();
 exports.routerUser.get('', user_controller_1.default.getAll);
-exports.routerUser.post('/add', user_controller_1.default.save);
+exports.routerUser.post('/add', user_controller_1.default.add);
 //# sourceMappingURL=user-router.js.map

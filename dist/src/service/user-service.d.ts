@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 export declare class UserService {
     private userRepository;
     constructor();
-    finAll: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
-    save: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
+    findAll: () => Promise<any>;
+    add: (req: Request, res: Response) => Promise<any>;
+    edit: (req: Request, res: Response) => Promise<any>;
+    delete: (req: Request, res: Response) => Promise<any>;
 }

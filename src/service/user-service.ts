@@ -1,20 +1,32 @@
 import {AppDataSource} from "../data-source";
 import {User} from "../model/user";
 import {Request, Response} from "express";
-import {Post} from "../model/post";
 
 export class UserService{
     private userRepository:any;
     constructor() {
         this.userRepository = AppDataSource.getRepository(User);
     }
-    finAll= async(req:Request,res:Response)=>{
-        let users= await this.userRepository.query(`select * from users`)
-        return res.status(200).json(users);
+
+    findAll = async ()=>{
+        let users = await this.userRepository.find();
+        return users
     }
-    save = async (req:Request,res:Response)=>{
+
+    add = async (req:Request,res:Response)=>{
         let user = req.body;
         let users = await this.userRepository.save(user)
-        return res.status(200).json(users)
+        return users
+    }
+    edit = async (req:Request,res:Response)=>{
+        let id= +req.params.id;
+        let user = req.body;
+        let users= await this.userRepository.update({id:id},user);
+        return users
+    }
+    delete = async (req:Request,res:Response)=>{
+        let id= +req.params.id;
+        let users =await this.userRepository.delete(id);
+        return users
     }
 }

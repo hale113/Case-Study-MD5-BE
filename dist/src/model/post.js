@@ -36,10 +36,6 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ type: 'varchar' }),
     __metadata("design:type", String)
-], Post.prototype, "img", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
-    __metadata("design:type", String)
 ], Post.prototype, "status", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),

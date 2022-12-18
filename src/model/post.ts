@@ -13,8 +13,6 @@ export class Post{
     @Column({type:'varchar'})
     public time: string;
     @Column({type:'varchar'})
-    public img: string;
-    @Column({type:'varchar'})
     public status: string;
     @Column({type:'int'})
     public like: number;

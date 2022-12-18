@@ -13,9 +13,9 @@ export class PostLikeController{
         this.userService = new UserService();
     }
     getAll = async (req:Request,res:Response)=>{
-        let posts = await this.postService.findAll(req,res);
+        let posts = await this.postService.findAll();
         let postLikes = await this.posLikeService.findAll(req,res);
-        let users = await this.userService.finAll(req,res);
+        let users = await this.userService.findAll();
         res.render('postLike/list',{
             listPost: posts,
             listPostLike:postLikes,

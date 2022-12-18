@@ -6,9 +6,7 @@ const post_like_1 = require("../model/post-like");
 class PostLikeService {
     constructor() {
         this.findAll = async (req, res) => {
-            let postLikes = await this.postLikeRepository.query(`select *
-                                                             from post-likes join users
-                                                             on idU = users.id join posts on idP = posts.id`);
+            let postLikes = await this.postLikeRepository.find();
             return res.status(200).json(postLikes);
         };
         this.postLikeRepository = data_source_1.AppDataSource.getRepository(post_like_1.PostLike);

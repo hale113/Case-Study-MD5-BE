@@ -8,8 +8,8 @@ class CommentController {
     constructor() {
         this.getAll = async (req, res) => {
             let comments = await this.commentService.findAll(req, res);
-            let posts = await this.postService.findAll(req, res);
-            let users = await this.userService.finAll(req, res);
+            let posts = await this.postService.findAll();
+            let users = await this.userService.findAll();
             res.render('comment/list', {
                 listComment: comments,
                 listPost: posts,

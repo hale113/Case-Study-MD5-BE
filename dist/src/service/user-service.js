@@ -5,14 +5,25 @@ const data_source_1 = require("../data-source");
 const user_1 = require("../model/user");
 class UserService {
     constructor() {
-        this.finAll = async (req, res) => {
-            let users = await this.userRepository.query(`select * from users`);
-            return res.status(200).json(users);
+        this.findAll = async () => {
+            let users = await this.userRepository.find();
+            return users;
         };
-        this.save = async (req, res) => {
+        this.add = async (req, res) => {
             let user = req.body;
             let users = await this.userRepository.save(user);
-            return res.status(200).json(users);
+            return users;
+        };
+        this.edit = async (req, res) => {
+            let id = +req.params.id;
+            let user = req.body;
+            let users = await this.userRepository.update({ id: id }, user);
+            return users;
+        };
+        this.delete = async (req, res) => {
+            let id = +req.params.id;
+            let users = await this.userRepository.delete(id);
+            return users;
         };
         this.userRepository = data_source_1.AppDataSource.getRepository(user_1.User);
     }

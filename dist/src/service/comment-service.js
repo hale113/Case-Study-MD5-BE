@@ -6,7 +6,7 @@ const comment_1 = require("../model/comment");
 class CommentService {
     constructor() {
         this.findAll = async (req, res) => {
-            let comments = await this.commentRepository.query(`select * from comments join users on idU = users.id join posts on idP = posts.id`);
+            let comments = await this.commentRepository.find();
             return res.status(200).json(comments);
         };
         this.commentRepository = data_source_1.AppDataSource.getRepository(comment_1.Comment);

@@ -3,11 +3,7 @@ import postController from "../controller/post-controller";
 
 export const routerPost = Router();
 routerPost.get('/posts',postController.getAll);
-routerPost.get('/create',postController.showFormCreate);
-routerPost.post('/create', postController.create);
-routerPost.get('/edit/:id',postController.showFormEdit);
-routerPost.post('/edit/:id',postController.edit);
-routerPost.get('/delete/:id',postController.showFormDelete);
-routerPost.post('/delete/:id',postController.delete);
-routerPost.post('/products', postController.showFinName);
+routerPost.post('/add', postController.add);
+routerPost.put('/:id',postController.edit);
+routerPost.delete('/:id',postController.delete);
 

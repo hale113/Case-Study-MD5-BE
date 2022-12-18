@@ -7,9 +7,9 @@ const post_service_1 = require("../service/post-service");
 class PostLikeController {
     constructor() {
         this.getAll = async (req, res) => {
-            let posts = await this.postService.findAll(req, res);
+            let posts = await this.postService.findAll();
             let postLikes = await this.posLikeService.findAll(req, res);
-            let users = await this.userService.finAll(req, res);
+            let users = await this.userService.findAll();
             res.render('postLike/list', {
                 listPost: posts,
                 listPostLike: postLikes,
