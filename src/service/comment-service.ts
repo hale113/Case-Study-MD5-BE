@@ -16,4 +16,16 @@ export class CommentService{
         let comments = await this.commentRepository.save(comment)
         return comments
     }
+
+    edit = async (req:Request,res:Response)=>{
+        let id= +req.params.id;
+        let comment = req.body;
+        let comments= await this.commentRepository.update({id:id},comment);
+        return comments
+    }
+    delete = async (req:Request,res:Response)=>{
+        let id= +req.params.id;
+        let comments =await this.commentRepository.delete(id);
+        return comments
+    }
 }

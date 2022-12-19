@@ -1,26 +1,29 @@
 import {LikeService} from "../service/like-service";
 import {Request, Response} from "express";
-import {UserService} from "../service/user-service";
-import {PostService} from "../service/post-service";
+
+
 
 export class LikeController {
-    private posLikeService: LikeService;
-    private userService: UserService;
-    private postService: PostService;
+    private likeService: LikeService;
     constructor() {
-        this.postService = new PostService();
-        this.posLikeService = new LikeService();
-        this.userService = new UserService();
+        this.likeService = new LikeService();
     }
     getAll = async (req:Request,res:Response)=>{
-        let posts = await this.postService.findAll();
-        let postLikes = await this.posLikeService.findAll(req,res);
-        let users = await this.userService.findAll();
-        res.render('postLike/list',{
-            listPost: posts,
-            listPostLike:postLikes,
-            listUser: users
-        });
+        let likes= await this.likeService.findAll;
+        return res.status(200).json(likes);
+    }
+    add = async (req:Request,res:Response)=>{
+        let likes= await this.likeService.add(req,res);
+        return res.status(200).json(likes);
+    }
+
+    edit = async  (req:Request,res:Response)=>{
+        let likes =  await this.likeService.edit(req,res);
+        return res.status(200).json(likes);
+    }
+    delete= async  (req:Request,res:Response)=>{
+        let likes= await this.likeService.delete(req,res);
+        return res.status(200).json(likes)
     }
 }
 export default new LikeController()

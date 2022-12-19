@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 export declare class LikeController {
-    private posLikeService;
-    private userService;
-    private postService;
+    private likeService;
     constructor();
-    getAll: (req: Request, res: Response) => Promise<void>;
+    getAll: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
+    add: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
+    edit: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
+    delete: (req: Request, res: Response) => Promise<Response<any, Record<string, any>>>;
 }
 declare const _default: LikeController;
 export default _default;

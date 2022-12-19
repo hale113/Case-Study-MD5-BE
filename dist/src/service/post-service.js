@@ -6,7 +6,7 @@ const post_1 = require("../model/post");
 class PostService {
     constructor() {
         this.findAll = async () => {
-            let posts = await this.postRepository.find();
+            let posts = await this.postRepository.query(`select * from posts join users on idU = users.id`);
             return posts;
         };
         this.findByName = async (title) => {

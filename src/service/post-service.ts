@@ -13,7 +13,7 @@ export class PostService{
         this.postRepository= AppDataSource.getRepository(Post);
     }
     findAll = async ()=>{
-        let posts = await this.postRepository.find();
+        let posts = await this.postRepository.query(`select * from posts join users on idU = users.id`);
        return posts
     }
     findByName = async (title)=>{

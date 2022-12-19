@@ -2,23 +2,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LikeController = void 0;
 const like_service_1 = require("../service/like-service");
-const user_service_1 = require("../service/user-service");
-const post_service_1 = require("../service/post-service");
 class LikeController {
     constructor() {
         this.getAll = async (req, res) => {
-            let posts = await this.postService.findAll();
-            let postLikes = await this.posLikeService.findAll(req, res);
-            let users = await this.userService.findAll();
-            res.render('postLike/list', {
-                listPost: posts,
-                listPostLike: postLikes,
-                listUser: users
-            });
+            let likes = await this.likeService.findAll;
+            return res.status(200).json(likes);
         };
-        this.postService = new post_service_1.PostService();
-        this.posLikeService = new like_service_1.LikeService();
-        this.userService = new user_service_1.UserService();
+        this.add = async (req, res) => {
+            let likes = await this.likeService.add(req, res);
+            return res.status(200).json(likes);
+        };
+        this.edit = async (req, res) => {
+            let likes = await this.likeService.edit(req, res);
+            return res.status(200).json(likes);
+        };
+        this.delete = async (req, res) => {
+            let likes = await this.likeService.delete(req, res);
+            return res.status(200).json(likes);
+        };
+        this.likeService = new like_service_1.LikeService();
     }
 }
 exports.LikeController = LikeController;

@@ -40,7 +40,6 @@ export class UserController{
                     id: userFind[0]._id,
                     name: userFind[0].name
                 }
-
                 let secret = 'ha'
                 let token = await jwt.sign(payload, secret, {
                     expiresIn: 36000

@@ -14,6 +14,17 @@ class CommentService {
             let comments = await this.commentRepository.save(comment);
             return comments;
         };
+        this.edit = async (req, res) => {
+            let id = +req.params.id;
+            let comment = req.body;
+            let comments = await this.commentRepository.update({ id: id }, comment);
+            return comments;
+        };
+        this.delete = async (req, res) => {
+            let id = +req.params.id;
+            let comments = await this.commentRepository.delete(id);
+            return comments;
+        };
         this.commentRepository = data_source_1.AppDataSource.getRepository(comment_1.Comment);
     }
 }

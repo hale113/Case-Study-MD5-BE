@@ -12,7 +12,7 @@ export class Post{
     public content: string;
     @Column({type:'varchar'})
     public time: string;
-    @Column({type:'varchar'})
+    @Column({type:'varchar',default:'public'})
     public status: string;
     @Column({type:'int'})
     public like: number;

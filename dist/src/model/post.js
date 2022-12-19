@@ -34,7 +34,7 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "time", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'varchar', default: 'public' }),
     __metadata("design:type", String)
 ], Post.prototype, "status", void 0);
 __decorate([
