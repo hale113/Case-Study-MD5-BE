@@ -52,8 +52,10 @@ export class UserController{
             }
         }
     }
+
     finByName =async (req:Request,res:Response)=>{
         let user = req.body;
+        console.log(user)
         let userFind = await this.userService.findByName(user.name);
         return res.status(201).json(userFind)
     }
