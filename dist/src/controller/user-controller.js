@@ -40,7 +40,7 @@ class UserController {
                 }
                 else {
                     let payload = {
-                        id: userFind[0]._id,
+                        id: userFind[0].id,
                         name: userFind[0].name
                     };
                     let secret = 'ha';
@@ -49,7 +49,7 @@ class UserController {
                     });
                     return res.json({
                         token: token,
-                        id: userFind[0]._id
+                        id: userFind[0].id
                     });
                 }
             }
@@ -57,7 +57,7 @@ class UserController {
         this.finByName = async (req, res) => {
             let user = req.body;
             let userFind = await this.userService.findByName(user.name);
-            return res.status(201).json(userFind[0]);
+            return res.status(201).json(userFind);
         };
         this.getAll = async (req, res) => {
             let users = await this.userService.findAll();

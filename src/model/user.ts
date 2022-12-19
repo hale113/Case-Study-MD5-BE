@@ -12,6 +12,6 @@ export class User{
     public img: string;
     @Column({type: 'int',default:1})//1: user
     public role: number ;
-    @Column({type: 'int'})
+    @Column({type: 'int',default:1})//1: mở
     public status: number;
 }

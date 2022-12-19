@@ -34,7 +34,7 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'int' }),
+    (0, typeorm_1.Column)({ type: 'int', default: 1 }),
     __metadata("design:type", Number)
 ], User.prototype, "status", void 0);
 User = __decorate([

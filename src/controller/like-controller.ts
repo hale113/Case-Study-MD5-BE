@@ -2,7 +2,6 @@ import {LikeService} from "../service/like-service";
 import {Request, Response} from "express";
 
 
-
 export class LikeController {
     private likeService: LikeService;
     constructor() {

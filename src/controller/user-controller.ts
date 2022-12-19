@@ -37,7 +37,7 @@ export class UserController{
 
             } else {
                 let payload = {
-                    id: userFind[0]._id,
+                    id: userFind[0].id,
                     name: userFind[0].name
                 }
                 let secret = 'ha'
@@ -47,7 +47,7 @@ export class UserController{
 
                 return res.json({
                     token: token,
-                    id: userFind[0]._id
+                    id: userFind[0].id
                 })
             }
         }
@@ -55,8 +55,9 @@ export class UserController{
     finByName =async (req:Request,res:Response)=>{
         let user = req.body;
         let userFind = await this.userService.findByName(user.name);
-        return res.status(201).json(userFind[0])
+        return res.status(201).json(userFind)
     }
+
     getAll = async (req:Request,res:Response)=>{
         let users = await this.userService.findAll();
         return res.status(200).json(users);

@@ -1,5 +1,5 @@
 export declare class Like {
     readonly id: number;
-    IdU: number;
-    IdP: number;
+    idU: number;
+    idP: number;
 }

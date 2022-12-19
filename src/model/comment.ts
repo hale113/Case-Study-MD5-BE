@@ -4,9 +4,9 @@ export class Comment {
     @PrimaryGeneratedColumn({type: 'int'})
     public readonly id: number;
     @Column({type: 'int'})
-    public IdU: number;
+    public idU: number;
     @Column({type: 'int'})
-    public IdP: number;
+    public idP: number;
     @Column({type: 'varchar'})
     public content: string;
     @Column({type: 'varchar'})

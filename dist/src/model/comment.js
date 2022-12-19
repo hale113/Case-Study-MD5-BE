@@ -20,11 +20,11 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
-], Comment.prototype, "IdU", void 0);
+], Comment.prototype, "idU", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
-], Comment.prototype, "IdP", void 0);
+], Comment.prototype, "idP", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'varchar' }),
     __metadata("design:type", String)

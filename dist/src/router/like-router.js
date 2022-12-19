@@ -3,9 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.routerPostLike = void 0;
+exports.likeRouter = void 0;
 const express_1 = require("express");
 const like_controller_1 = __importDefault(require("../controller/like-controller"));
-exports.routerPostLike = (0, express_1.Router)();
-exports.routerPostLike.get('/post-like', like_controller_1.default.getAll);
+exports.likeRouter = (0, express_1.Router)();
+exports.likeRouter.get('', like_controller_1.default.getAll);
+exports.likeRouter.post('/add', like_controller_1.default.add);
 //# sourceMappingURL=like-router.js.map

@@ -20,11 +20,11 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
-], Like.prototype, "IdU", void 0);
+], Like.prototype, "idU", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
-], Like.prototype, "IdP", void 0);
+], Like.prototype, "idP", void 0);
 Like = __decorate([
     (0, typeorm_1.Entity)({ name: 'likes' })
 ], Like);

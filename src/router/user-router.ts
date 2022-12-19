@@ -7,4 +7,4 @@ userRouter.post('/login', userController.login);
 userRouter.get('/users', userController.getAll);
 userRouter.put('/:id',userController.edit);
 userRouter.delete('/:id',userController.delete);
-userRouter.post('/find-by-name',userController.finByName);
+userRouter.get('/find-by-name',userController.finByName);

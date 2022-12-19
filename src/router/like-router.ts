@@ -1,5 +1,6 @@
 import {Router} from "express";
-import postLikeController from "../controller/like-controller";
+import likeController from "../controller/like-controller";
 
-export const routerPostLike = Router()
-routerPostLike.get('/post-like',postLikeController.getAll);
+export const likeRouter = Router()
+likeRouter.get('',likeController.getAll);
+likeRouter.post('/add',likeController.add);
