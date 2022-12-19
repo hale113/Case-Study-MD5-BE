@@ -13,7 +13,7 @@ export class CommentService{
     }
     add = async (req:Request,res:Response)=>{
         let comment = req.body;
-        let comments = await this.commentRepository.query(`select * from comments join posts idP=posts.id join users idU = users.id`)
+        let comments = await this.commentRepository.save(comment)
         return comments
     }
 }

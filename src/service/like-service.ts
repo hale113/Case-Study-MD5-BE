@@ -1,11 +1,11 @@
 import {AppDataSource} from "../data-source";
-import {PostLike} from "../model/post-like";
+import {Like} from "../model/like";
 import {Request, Response} from "express";
 
-export class PostLikeService {
+export class LikeService {
     private postLikeRepository: any;
     constructor() {
-        this.postLikeRepository = AppDataSource.getRepository(PostLike);
+        this.postLikeRepository = AppDataSource.getRepository(Like);
     }
     findAll = async (req: Request, res: Response) => {
         let postLikes = await this.postLikeRepository.find();

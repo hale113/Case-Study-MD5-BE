@@ -9,11 +9,10 @@ export class UserController{
     }
     register = async (req:Request,res:Response)=>{
         let user = req.body;
-        let userFind = await this.userService.findByName(user.name);
-        if (userFind){
+        let userFind = await this.userService.login(user.name);
+        if (userFind.length){
             res.status(200).json({
                 mess:"Tài khoản đã tồn tại!!! ",
-                checkRegister: false
             })
         }else {
             user.password = await bcrypt.hash(user.password, 10);
@@ -24,7 +23,7 @@ export class UserController{
 
     login = async (req:Request,res:Response)=>{
         let user = req.body;
-        let userFind = await this.userService.findByName(user.name);
+        let userFind = await this.userService.login(user.name);
         if (userFind.length == 0){
             return res.status(200).json({
                 massage: 'Người dùng đã tồn tại!!'

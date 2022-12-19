@@ -9,8 +9,8 @@ class PostService {
             let posts = await this.postRepository.find();
             return posts;
         };
-        this.findByName = async (name) => {
-            let posts = await this.postRepository.query(`select * from posts where name = '${name}'`);
+        this.findByName = async (title) => {
+            let posts = await this.postRepository.query(`select * from posts where title like '%${title}%'`);
             return posts;
         };
         this.add = async (req, res) => {

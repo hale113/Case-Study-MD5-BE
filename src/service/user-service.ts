@@ -12,8 +12,12 @@ export class UserService{
         let users = await this.userRepository.find();
         return users
     }
-    findByName = async (name)=>{
+    login = async (name)=>{
         let users = await this.userRepository.query(`select * from users where name = '${name}'`)
+        return users
+    }
+    findByName = async (name)=>{
+        let users = await this.userRepository.query(`select * from users where name = '%${name}%'`)
         return users
     }
     add = async (user)=>{

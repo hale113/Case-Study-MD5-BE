@@ -9,8 +9,12 @@ class UserService {
             let users = await this.userRepository.find();
             return users;
         };
-        this.findByName = async (name) => {
+        this.login = async (name) => {
             let users = await this.userRepository.query(`select * from users where name = '${name}'`);
+            return users;
+        };
+        this.findByName = async (name) => {
+            let users = await this.userRepository.query(`select * from users where name = '%${name}%'`);
             return users;
         };
         this.add = async (user) => {

@@ -11,11 +11,10 @@ class UserController {
     constructor() {
         this.register = async (req, res) => {
             let user = req.body;
-            let userFind = await this.userService.findByName(user.name);
-            if (userFind) {
+            let userFind = await this.userService.login(user.name);
+            if (userFind.length) {
                 res.status(200).json({
                     mess: "Tài khoản đã tồn tại!!! ",
-                    checkRegister: false
                 });
             }
             else {
@@ -26,7 +25,7 @@ class UserController {
         };
         this.login = async (req, res) => {
             let user = req.body;
-            let userFind = await this.userService.findByName(user.name);
+            let userFind = await this.userService.login(user.name);
             if (userFind.length == 0) {
                 return res.status(200).json({
                     massage: 'Người dùng đã tồn tại!!'

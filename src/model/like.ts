@@ -1,6 +1,6 @@
 import {Column, Entity, PrimaryGeneratedColumn,} from "typeorm";
-@Entity({name:'post-likes'})
-export class PostLike {
+@Entity({name:'likes'})
+export class Like {
     @PrimaryGeneratedColumn({type: 'int'})
     public readonly id: number;
     @Column({type: 'int'})
