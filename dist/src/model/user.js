@@ -26,9 +26,9 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'varchar', default: 'https://st.quantrimang.com/photos/image/2021/08/16/Anh-vit-cute-6.jpg' }),
     __metadata("design:type", String)
-], User.prototype, "img", void 0);
+], User.prototype, "avatar", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'int', default: 1 }),
     __metadata("design:type", Number)
