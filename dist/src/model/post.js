@@ -32,7 +32,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", String)
-], Post.prototype, "time", void 0);
+], Post.prototype, "timeP", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'varchar', default: 'public' }),
     __metadata("design:type", String)
@@ -46,8 +46,8 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "img", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
-    __metadata("design:type", String)
+    (0, typeorm_1.Column)({ type: 'int' }),
+    __metadata("design:type", Number)
 ], Post.prototype, "comments", void 0);
 Post = __decorate([
     (0, typeorm_1.Entity)({ name: 'posts' })

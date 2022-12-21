@@ -9,6 +9,6 @@ export class Comment {
     public idP: number;
     @Column({type: 'varchar'})
     public content: string;
-    @Column({type: 'varchar'})
-    public time: string;
+    @Column({type:'timestamp', default:()=> 'CURRENT_TIMESTAMP'})
+    public timeC: string
 }

@@ -3,5 +3,5 @@ export declare class Comment {
     idU: number;
     idP: number;
     content: string;
-    time: string;
+    timeC: string;
 }

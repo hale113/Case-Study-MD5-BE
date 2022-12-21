@@ -3,9 +3,9 @@ export declare class Post {
     idU: number;
     title: string;
     content: string;
-    time: string;
+    timeP: string;
     status: string;
     like: number;
     img: string;
-    comments: string;
+    comments: number;
 }

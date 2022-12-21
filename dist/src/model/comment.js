@@ -30,9 +30,9 @@ __decorate([
     __metadata("design:type", String)
 ], Comment.prototype, "content", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", String)
-], Comment.prototype, "time", void 0);
+], Comment.prototype, "timeC", void 0);
 Comment = __decorate([
     (0, typeorm_1.Entity)({ name: 'comments' })
 ], Comment);

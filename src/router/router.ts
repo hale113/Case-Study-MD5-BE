@@ -4,8 +4,6 @@ import {userRouter} from "./user-router";
 import {likeRouter} from "./like-router";
 import {commentRouter} from "./comment-router";
 
-
-
 export const router= Router();
 router.use('/posts',postRouter);
 router.use('/auth',userRouter);
