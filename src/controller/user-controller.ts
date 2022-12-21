@@ -8,31 +8,34 @@ export class UserController{
         this.userService = new UserService()
     }
     register = async (req:Request,res:Response)=>{
-        let user = req.body;
-        let userFind = await this.userService.login(user.name);
-        if (userFind.length){
-            res.status(200).json({
-                mess:"Tài khoản đã tồn tại!!! ",
-            })
-        }else {
-            user.password = await bcrypt.hash(user.password, 10);
-            let users= await this.userService.add(user);
-            return res.status(201).json(users)
-        }
+    let user = req.body;
+    let userFind = await this.userService.login(user.name);
+    if (userFind.length){
+        res.status(200).json({
+            mess:"Tài khoản đã tồn tại!!! ",
+            checkR: false
+        })
+    }else {
+        user.password = await bcrypt.hash(user.password, 10);
+        let users= await this.userService.add(user);
+        return res.status(201).json({
+            users: users,
+            checkR: true
+        })
     }
+}
 
     login = async (req:Request,res:Response)=>{
         let user = req.body;
         let userFind = await this.userService.login(user.name);
-        if (userFind.length == 0){
-            return res.status(200).json({
-                massage: 'Người dùng đã tồn tại!!'
-            })
-        }else {
+        if(userFind.length==0){
+            return res.json({mess:'sai rui'})
+        }
+        if (userFind[0]){
             let comparePassword = await bcrypt.compare(user.password, userFind[0].password)
             if (!comparePassword) {
                 return res.json({
-                    massage: 'Mật khẩu sai'
+                    mess: comparePassword
                 })
 
             } else {
@@ -47,7 +50,8 @@ export class UserController{
 
                 return res.json({
                     token: token,
-                    id: userFind[0].id
+                    user: userFind[0],
+                    mess: comparePassword
                 })
             }
         }

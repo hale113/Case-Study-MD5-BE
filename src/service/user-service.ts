@@ -1,6 +1,7 @@
 import {AppDataSource} from "../data-source";
 import {User} from "../model/user";
 import { Request, Response} from "express";
+import {UploadedFile} from "express-fileupload";
 
 export class UserService{
     private userRepository:any;
@@ -24,6 +25,7 @@ export class UserService{
         let users = await this.userRepository.save(user)
         return users
     }
+
     edit = async (req:Request,res:Response)=>{
         let id= +req.params.id;
         let user = req.body;

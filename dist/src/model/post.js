@@ -30,7 +30,7 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "content", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", String)
 ], Post.prototype, "time", void 0);
 __decorate([
@@ -41,6 +41,10 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
 ], Post.prototype, "like", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'varchar' }),
+    __metadata("design:type", String)
+], Post.prototype, "img", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'varchar' }),
     __metadata("design:type", String)

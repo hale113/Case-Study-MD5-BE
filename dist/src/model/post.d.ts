@@ -6,5 +6,6 @@ export declare class Post {
     time: string;
     status: string;
     like: number;
+    img: string;
     comments: string;
 }

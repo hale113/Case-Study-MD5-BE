@@ -10,12 +10,14 @@ export class Post{
     public title: string;
     @Column({type:'varchar'})
     public content: string;
-    @Column({type:'varchar'})
-    public time: string;
+    @Column({type:'timestamp', default:()=> 'CURRENT_TIMESTAMP'})
+    public time: string
     @Column({type:'varchar',default:'public'})
     public status: string;
     @Column({type:'int'})
     public like: number;
+    @Column({type: 'varchar'})
+    public img: string;
     @Column({type:'varchar'})
     public comments: string
 }
